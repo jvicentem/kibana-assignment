@@ -1,0 +1,170 @@
+[
+  {
+    "_id": "e9679ac0-43cc-11e7-9f3a-6df238eea920",
+    "_type": "visualization",
+    "_source": {
+      "title": "Developers and organizations evolution",
+      "visState": "{\"title\":\"Developers and organizations evolution\",\"type\":\"histogram\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"Author_name\",\"customLabel\":\"Developers\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"Author_org_name\",\"customLabel\":\"Organizations\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"grimoire_creation_date\",\"interval\":\"M\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"opnfv\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "7b0ba6c0-43cc-11e7-9f3a-6df238eea920",
+    "_type": "visualization",
+    "_source": {
+      "title": "Merges done in repo",
+      "visState": "{\"title\":\"Merges done in repo\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"legendPosition\":\"right\",\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"times\":[]},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"repo_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Count\":\"#E0752D\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"opnfv\",\"query\":{\"query_string\":{\"query\":\"message=\\\"Merge\\\"\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "e25d0f10-43c4-11e7-be40-832fe28286db",
+    "_type": "visualization",
+    "_source": {
+      "title": "Repo activity as time series",
+      "visState": "{\"type\":\"timelion\",\"title\":\"Repo activity as time series\",\"params\":{\"expression\":\".es(index=\\\"opnfv\\\", timefield=\\\"utc_commit\\\", metric=\\\"cardinality:Commit_id\\\", split=\\\"origin:5\\\")\",\"interval\":\"1w\"}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{}"
+      }
+    }
+  },
+  {
+    "_id": "65691db0-40b7-11e7-b130-9578b147e57d",
+    "_type": "visualization",
+    "_source": {
+      "title": "Top 5 repos which had more commits and organization who did them",
+      "visState": "{\"title\":\"Top 5 repos which had more commits and organization who did them\",\"type\":\"histogram\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"origin\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"author_org_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"opnfv\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "2bc934e0-43ce-11e7-9f3a-6df238eea920",
+    "_type": "visualization",
+    "_source": {
+      "title": "Repos with more commits",
+      "visState": "{\"title\":\"Repos with more commits\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"origin\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"opnfv\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "e8e86570-40a7-11e7-984d-8348f530f002",
+    "_type": "visualization",
+    "_source": {
+      "title": "Top 5 repos which had more commits and developer who did them",
+      "visState": "{\"title\":\"Top 5 repos which had more commits and developer who did them\",\"type\":\"histogram\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"origin\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"committer_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"opnfv\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "22777750-43d1-11e7-bfdd-c9eb3cf240be",
+    "_type": "visualization",
+    "_source": {
+      "title": "Organizations commits",
+      "visState": "{\"title\":\"Organizations commits\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Author_org_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"opnfv\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "f6d40c80-43d0-11e7-bfdd-c9eb3cf240be",
+    "_type": "visualization",
+    "_source": {
+      "title": "Developers commits",
+      "visState": "{\"title\":\"Developers commits\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Author_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"opnfv\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "ad7e7e30-40a1-11e7-9c05-adb15520f00d",
+    "_type": "visualization",
+    "_source": {
+      "title": "Organizations commits as time series",
+      "visState": "{\"title\":\"Organizations commits as time series\",\"type\":\"timelion\",\"params\":{\"expression\":\".es(index=\\\"opnfv\\\", timefield=\\\"utc_commit\\\", metric=cardinality:Commit_id, split=\\\"author_org_name:5\\\")\",\"interval\":\"1w\"},\"aggs\":[],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "0b1ddc50-40a4-11e7-ba17-e16f5742579c",
+    "_type": "visualization",
+    "_source": {
+      "title": "Developers commits as time series",
+      "visState": "{\"aggs\":[],\"listeners\":{},\"params\":{\"expression\":\".es(index=\\\"opnfv\\\", timefield=\\\"utc_commit\\\", metric=\\\"cardinality:Commit_id\\\", split=\\\"author_name:5\\\")\",\"interval\":\"1w\"},\"title\":\"Developers commits as time series\",\"type\":\"timelion\"}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "fe3dba10-43d6-11e7-a9c4-8b2d45bc58fd",
+    "_type": "visualization",
+    "_source": {
+      "title": "Top developer vs top organization",
+      "visState": "{\"type\":\"timelion\",\"title\":\"Top developer vs top organization\",\"params\":{\"expression\":\".es(index=\\\"opnfv\\\", timefield=\\\"utc_commit\\\", metric='cardinality:Commit_id', split=\\\"Author_name:1\\\"), .es(index=\\\"opnfv\\\", timefield=\\\"utc_commit\\\", metric='cardinality:Commit_id', split=\\\"Author_org_name:1\\\")\",\"interval\":\"1w\"}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{}"
+      }
+    }
+  },
+  {
+    "_id": "3ffc5e70-43cd-11e7-9f3a-6df238eea920",
+    "_type": "visualization",
+    "_source": {
+      "title": "Developers and organizations by project",
+      "visState": "{\"title\":\"Developers and organizations by project\",\"type\":\"histogram\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false},\"aggs\":[{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"origin\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"3\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"Author\",\"customLabel\":\"Developers\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"Commit_org_name\",\"customLabel\":\"Organizations\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"opnfv\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[{\"meta\":{\"index\":\"opnfv\",\"key\":\"utc_commit\",\"value\":\"February 1st 2016, 00:00:00.000 to February 8th 2016, 00:00:00.000\",\"disabled\":true,\"negate\":false,\"alias\":null},\"range\":{\"utc_commit\":{\"gte\":1454281200000,\"lt\":1454886000000,\"format\":\"epoch_millis\"}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  }
+]
